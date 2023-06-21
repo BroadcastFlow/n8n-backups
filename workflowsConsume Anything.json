@@ -1,0 +1,70 @@
+{
+  "active": true,
+  "connections": {
+    "Webhook": {
+      "main": [
+        [
+          {
+            "node": "YouTube",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-06-12T19:24:41.194Z",
+  "id": "4",
+  "name": "Consume Anything",
+  "nodes": [
+    {
+      "parameters": {
+        "httpMethod": "POST",
+        "path": "6eef689b-8f3e-44d9-b44e-da6aebb36d35",
+        "options": {
+          "binaryData": true
+        }
+      },
+      "id": "66c6eea1-f1a6-400f-8830-c9fac217bea1",
+      "name": "Webhook",
+      "type": "n8n-nodes-base.webhook",
+      "typeVersion": 1,
+      "position": [
+        1140,
+        520
+      ],
+      "webhookId": "6eef689b-8f3e-44d9-b44e-da6aebb36d35"
+    },
+    {
+      "parameters": {
+        "resource": "video",
+        "operation": "upload",
+        "title": "Foo Test",
+        "regionCode": "SA",
+        "categoryId": "27",
+        "options": {}
+      },
+      "id": "ad2f4a9f-00a7-4d56-8046-5a67b5145069",
+      "name": "YouTube",
+      "type": "n8n-nodes-base.youTube",
+      "typeVersion": 1,
+      "position": [
+        1360,
+        520
+      ],
+      "credentials": {
+        "youTubeOAuth2Api": {
+          "id": "1",
+          "name": "YouTube account"
+        }
+      }
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-06-12T20:04:41.942Z",
+  "versionId": "ef7ea311-ef03-47ac-818c-e6b98ece00c7"
+}
