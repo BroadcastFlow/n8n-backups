@@ -5,22 +5,12 @@
       "main": [
         [
           {
-            "node": "Respond to Webhook",
+            "node": "Respond with excution id",
             "type": "main",
             "index": 0
           },
           {
-            "node": "AWS DEMO",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "AWS DEV",
-            "type": "main",
-            "index": 0
-          },
-          {
-            "node": "AWS PROD",
+            "node": "Which ENV",
             "type": "main",
             "index": 0
           }
@@ -95,6 +85,31 @@
           }
         ]
       ]
+    },
+    "Which ENV": {
+      "main": [
+        [
+          {
+            "node": "AWS DEV",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AWS DEMO",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AWS PROD",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
     }
   },
   "createdAt": "2023-06-12T19:39:06.208Z",
@@ -115,8 +130,8 @@
       "type": "n8n-nodes-base.webhook",
       "typeVersion": 1,
       "position": [
-        480,
-        360
+        120,
+        500
       ],
       "webhookId": "f2a51186-e711-4143-8514-5c3633879a78"
     },
@@ -145,8 +160,8 @@
       "type": "n8n-nodes-base.switch",
       "typeVersion": 1,
       "position": [
-        1040,
-        360
+        1100,
+        480
       ]
     },
     {
@@ -161,8 +176,8 @@
       "type": "n8n-nodes-base.twitter",
       "typeVersion": 1,
       "position": [
-        1620,
-        300
+        1680,
+        460
       ],
       "credentials": {
         "twitterOAuth1Api": {
@@ -194,8 +209,8 @@
       "type": "n8n-nodes-base.youTube",
       "typeVersion": 1,
       "position": [
-        1440,
-        120
+        1500,
+        240
       ],
       "retryOnFail": false,
       "credentials": {
@@ -246,8 +261,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        1480,
-        480
+        1500,
+        660
       ],
       "credentials": {
         "facebookGraphApi": {
@@ -265,34 +280,10 @@
       "type": "n8n-nodes-base.code",
       "typeVersion": 1,
       "position": [
-        1440,
-        300
+        1500,
+        460
       ],
       "disabled": true
-    },
-    {
-      "parameters": {
-        "respondWith": "text",
-        "responseBody": "={ \"message\": \"Workflow Started\", \"excutionId\": {{ $execution.id }}}",
-        "options": {
-          "responseHeaders": {
-            "entries": [
-              {
-                "name": "content-type",
-                "value": "application/json"
-              }
-            ]
-          }
-        }
-      },
-      "id": "280aabdc-c2ed-48d0-aee5-48432f1faf7b",
-      "name": "Respond to Webhook",
-      "type": "n8n-nodes-base.respondToWebhook",
-      "typeVersion": 1,
-      "position": [
-        640,
-        740
-      ]
     },
     {
       "parameters": {
@@ -305,8 +296,8 @@
       "type": "n8n-nodes-base.awsS3",
       "typeVersion": 1,
       "position": [
-        740,
-        180
+        760,
+        300
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -327,8 +318,8 @@
       "type": "n8n-nodes-base.awsS3",
       "typeVersion": 1,
       "position": [
-        740,
-        360
+        760,
+        480
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -349,8 +340,8 @@
       "type": "n8n-nodes-base.awsS3",
       "typeVersion": 1,
       "position": [
-        740,
-        540
+        760,
+        660
       ],
       "alwaysOutputData": true,
       "credentials": {
@@ -359,6 +350,59 @@
           "name": "AWS - Demo - tma.demo.s3"
         }
       }
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $json.body.env }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "DEV"
+            },
+            {
+              "value2": "DEMO",
+              "output": 1
+            },
+            {
+              "value2": "PROD",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "34b07422-d05c-45fd-a7db-fdad4eb698f7",
+      "name": "Which ENV",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        460,
+        500
+      ]
+    },
+    {
+      "parameters": {
+        "respondWith": "text",
+        "responseBody": "={ \"message\": \"Workflow Started\", \"excutionId\": {{ $execution.id }}}",
+        "options": {
+          "responseHeaders": {
+            "entries": [
+              {
+                "name": "content-type",
+                "value": "application/json"
+              }
+            ]
+          }
+        }
+      },
+      "id": "280aabdc-c2ed-48d0-aee5-48432f1faf7b",
+      "name": "Respond with excution id",
+      "type": "n8n-nodes-base.respondToWebhook",
+      "typeVersion": 1,
+      "position": [
+        460,
+        340
+      ]
     }
   ],
   "pinData": {},
@@ -366,6 +410,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-06-21T09:40:33.320Z",
-  "versionId": "b96ac39e-8a6a-4552-887f-78426139bde9"
+  "updatedAt": "2023-06-21T13:25:05.987Z",
+  "versionId": "7d047bf8-c350-4ac9-9c2e-77c146f12073"
 }
