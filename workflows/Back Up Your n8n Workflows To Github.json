@@ -380,7 +380,7 @@
           "item": [
             {
               "mode": "everyX",
-              "value": 12
+              "value": 4
             }
           ]
         }
@@ -488,6 +488,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-06-21T09:34:05.827Z",
-  "versionId": "58b5cff4-6d1c-439f-b0ea-0222e44690ea"
+  "updatedAt": "2023-06-21T14:45:01.009Z",
+  "versionId": "50a0a9b7-1a00-4a97-8495-1bb5f5808db5"
 }
