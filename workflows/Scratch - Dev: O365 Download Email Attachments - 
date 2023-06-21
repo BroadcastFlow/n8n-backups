@@ -1,0 +1,706 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "Get Folder Details: Inbox",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Messages in Folder": {
+      "main": [
+        [
+          {
+            "node": "For each Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Folder Details: Inbox": {
+      "main": [
+        [
+          {
+            "node": "List Messages in Folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Attachments": {
+      "main": [
+        [
+          {
+            "node": "Do not include Inline Attachments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Folders": {
+      "main": [
+        [
+          {
+            "node": "Ingested Folder",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Ingested Folder": {
+      "main": [
+        [
+          {
+            "node": "Microsoft Outlook",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Do not include Inline Attachments": {
+      "main": [
+        [
+          {
+            "node": "Download Attachment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Attachment": {
+      "main": [
+        [
+          {
+            "node": "Set s3Filename",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email has Attachments": {
+      "main": [
+        [
+          {
+            "node": "Get Attachments",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Email without Attachment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AWS S3": {
+      "main": [
+        [
+          {
+            "node": "IF Upload Successfully",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF Upload Successfully": {
+      "main": [
+        [
+          {
+            "node": "Post request to XEN Watcher",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set s3Filename": {
+      "main": [
+        [
+          {
+            "node": "Set s3 Bucketname",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post request to XEN Watcher": {
+      "main": [
+        [
+          {
+            "node": "AWS Delete file in S3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Set s3 Bucketname": {
+      "main": [
+        [
+          {
+            "node": "AWS S3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft Outlook - Mark as Read": {
+      "main": [
+        [
+          {
+            "node": "List Folders",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AWS Delete file in S3": {
+      "main": [
+        [
+          {
+            "node": "Microsoft Outlook - Mark as Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger - Every 1 Minute(s)": {
+      "main": [
+        [
+          {
+            "node": "Get Folder Details: Inbox",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Email without Attachment": {
+      "main": [
+        [
+          {
+            "node": "Post request to XEN Watcher (without an Attachment)",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "For each Email": {
+      "main": [
+        [
+          {
+            "node": "Email has Attachments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Post request to XEN Watcher (without an Attachment)": {
+      "main": [
+        [
+          {
+            "node": "Microsoft Outlook - Mark as Read",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft Outlook": {
+      "main": [
+        [
+          {
+            "node": "For each Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-06-12T14:23:14.556Z",
+  "id": "2",
+  "name": "Scratch - Dev: O365 Download Email Attachments - #3",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "a4a1c4cb-5ee1-4f15-a5db-3123dbe1b83b",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        740
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folderMessage",
+        "operation": "getAll",
+        "folderId": "={{ $json.id }}",
+        "additionalFields": {}
+      },
+      "id": "c350753e-c459-42a8-8913-9539d8f396a6",
+      "name": "List Messages in Folder",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        380,
+        600
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "get",
+        "folderId": "Inbox",
+        "additionalFields": {}
+      },
+      "id": "1e834dbd-bba3-4ef2-9247-336e67a83341",
+      "name": "Get Folder Details: Inbox",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        160,
+        600
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messageAttachment",
+        "operation": "getAll",
+        "messageId": "={{ $json.id }}",
+        "additionalFields": {}
+      },
+      "id": "d4818eee-49f9-4646-811b-9b74fcc5085c",
+      "name": "Get Attachments",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        1060,
+        400
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "={{ $json.s3Bucket }}",
+        "fileName": "={{ $json.s3Filename }}",
+        "additionalFields": {}
+      },
+      "id": "e253ac64-9d59-48c2-a60c-39ef6cd86b79",
+      "name": "AWS S3",
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        420
+      ],
+      "credentials": {
+        "aws": {
+          "id": "14",
+          "name": "AWS - Demo - tma.demo.s3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "messageId": "={{ $('For each Email').item.json.id }}",
+        "folderId": "={{ $json.id }}"
+      },
+      "id": "30a6833e-0948-4998-9107-1744cefc793a",
+      "name": "Microsoft Outlook",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        1000
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      },
+      "disabled": true
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "getAll",
+        "additionalFields": {}
+      },
+      "id": "eb0d3941-3155-44d3-a9e0-0450a686e215",
+      "name": "List Folders",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        1020,
+        1000
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "string": [
+            {
+              "value1": "={{ $json.displayName }}",
+              "value2": "Ingested"
+            }
+          ]
+        }
+      },
+      "id": "b0c338bc-8627-45fb-8299-e54bed76d738",
+      "name": "Ingested Folder",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        1000
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## To Do\nAdd check to see if Watcher API is available. If not leave the emails where they are and try later.\n",
+        "height": 118,
+        "width": 323
+      },
+      "id": "29d0d7ac-e9fc-4998-872e-da4f2797388e",
+      "name": "Sticky Note",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        20,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.isInline }}",
+              "operation": "notEqual",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "5142c438-8ec6-4ac8-847a-43d846f1e8c9",
+      "name": "Do not include Inline Attachments",
+      "type": "n8n-nodes-base.filter",
+      "typeVersion": 1,
+      "position": [
+        1320,
+        220
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messageAttachment",
+        "operation": "download",
+        "messageId": "={{ $('For each Email').item.json.id }}",
+        "attachmentId": "={{ $json.id }}"
+      },
+      "id": "4960d9e3-4958-4a61-96ca-5cc00e9391c1",
+      "name": "Download Attachment",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        1600,
+        220
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $json.hasAttachments }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "3332f245-f142-422a-b1a3-55d127f21d13",
+      "name": "Email has Attachments",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        840,
+        520
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "2a7873ba-f4c4-488d-93d0-bba86e07c216",
+      "name": "IF Upload Successfully",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://9860-84-9-98-154.ngrok-free.app/new-email",
+        "sendHeaders": true,
+        "headerParameters": {
+          "parameters": [
+            {
+              "name": "Accept",
+              "value": "application/json"
+            }
+          ]
+        },
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"attachment\": { \"bucketSource\": \"{{ $('Set s3 Bucketname').item.json.s3Bucket }}\", \"sourceKey\": \"{{ $('Set s3Filename').item.json.s3Filename }}\" },\n  \"sender\": {\n    \"name\": \"{{ $('For each Email').item.json.sender.emailAddress.name }}\",\n    \"address\": \"{{ $('For each Email').item.json.sender.emailAddress.address }}\"\n  },\n  \"subject\": \"{{ $('For each Email').item.json.subject }}\",\n  \"mailbox\": \"dev.import@three-media.tv\"\n} ",
+        "options": {}
+      },
+      "id": "b687b58d-2699-476e-bd3d-e837d488d519",
+      "name": "Post request to XEN Watcher",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1820,
+        620
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "s3Filename",
+              "value": "=fileIngest/{{$now.toMillis()}} - {{ $json.name }} "
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "90eade15-e6ac-4ca9-af55-15fd2b23398b",
+      "name": "Set s3Filename",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1520,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "method": "POST",
+        "url": "https://9860-84-9-98-154.ngrok-free.app/new-email",
+        "sendBody": true,
+        "specifyBody": "json",
+        "jsonBody": "={\n  \"attachment\": null,\n  \"sender\": {\n    \"name\": \"{{ $('For each Email').item.json.sender.emailAddress.name }}\",\n    \"address\": \"{{ $('For each Email').item.json.sender.emailAddress.address }}\"\n  },\n  \"subject\": \"{{ $('For each Email').item.json.subject }}\",\n  \"mailbox\": \"dev.import@three-media.tv\"\n}",
+        "options": {}
+      },
+      "id": "d03cd2b7-9d6b-4acf-8c9a-bcd17300b4e9",
+      "name": "Post request to XEN Watcher (without an Attachment)",
+      "type": "n8n-nodes-base.httpRequest",
+      "typeVersion": 4.1,
+      "position": [
+        1320,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "delete",
+        "bucketName": "={{ $('Set s3 Bucketname').item.json.s3Bucket }}",
+        "fileKey": "={{ $('Set s3Filename').item.json.s3Filename }}",
+        "options": {}
+      },
+      "id": "2d4bb580-b4b0-4ac4-afda-9182386c6f95",
+      "name": "AWS Delete file in S3",
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 1,
+      "position": [
+        1980,
+        620
+      ],
+      "credentials": {
+        "aws": {
+          "id": "14",
+          "name": "AWS - Demo - tma.demo.s3"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "s3Bucket",
+              "value": "=tma-ryan-505506971371"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "b1386a34-ca96-4f9a-9e4f-ab2cdb8436c3",
+      "name": "Set s3 Bucketname",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        1680,
+        420
+      ]
+    },
+    {
+      "parameters": {
+        "content": "## Move Processed emails",
+        "height": 287.17880375987085,
+        "width": 791.2211809126261
+      },
+      "id": "1a26a52e-6672-4f2f-80b6-5abc01dffd66",
+      "name": "Sticky Note1",
+      "type": "n8n-nodes-base.stickyNote",
+      "typeVersion": 1,
+      "position": [
+        780,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "messageId": "={{ $('For each Email').item.json.id }}",
+        "updateFields": {
+          "isRead": true
+        }
+      },
+      "id": "e6de87f1-ba33-4f19-84b6-db3c41bb9b52",
+      "name": "Microsoft Outlook - Mark as Read",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        860,
+        1000
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "minutes",
+              "minutesInterval": 1
+            }
+          ]
+        }
+      },
+      "id": "9205aa87-c7ce-45ac-8cc6-ae7c81e0345f",
+      "name": "Schedule Trigger - Every 1 Minute(s)",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1,
+      "position": [
+        -60,
+        500
+      ],
+      "disabled": true
+    },
+    {
+      "parameters": {},
+      "id": "a117cf77-ba09-44d9-8bbc-7f08d5754304",
+      "name": "Email without Attachment",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1120,
+        600
+      ]
+    },
+    {
+      "parameters": {
+        "batchSize": 1,
+        "options": {}
+      },
+      "id": "76f13e0f-233e-4a27-857d-10c5ea25b6c3",
+      "name": "For each Email",
+      "type": "n8n-nodes-base.splitInBatches",
+      "typeVersion": 2,
+      "position": [
+        640,
+        540
+      ]
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": null,
+  "tags": [
+    {
+      "createdAt": "2023-06-15T11:16:46.546Z",
+      "updatedAt": "2023-06-15T11:16:46.546Z",
+      "id": "1",
+      "name": "Playground"
+    }
+  ],
+  "triggerCount": 0,
+  "updatedAt": "2023-06-15T18:28:04.564Z",
+  "versionId": "fce6be6c-ba45-4b43-959c-161bb53eb9d2"
+}
