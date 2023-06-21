@@ -1,0 +1,355 @@
+{
+  "active": false,
+  "connections": {
+    "When clicking \"Execute Workflow\"": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "IF": {
+      "main": [
+        [
+          {
+            "node": "NoOp1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoOp",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Schedule Trigger": {
+      "main": [
+        [
+          {
+            "node": "IF",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NoOp1": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "NoOp": {
+      "main": [
+        [
+          {
+            "node": "Wait1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Interval": {
+      "main": [
+        [
+          {
+            "node": "Workflow Start",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "New execution?": {
+      "main": [
+        [
+          {
+            "node": "Your code/nodes",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "NoOp2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow End": {
+      "main": [
+        [
+          {
+            "node": "NoOp3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Workflow Start": {
+      "main": [
+        [
+          {
+            "node": "New execution?",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Your code/nodes": {
+      "main": [
+        [
+          {
+            "node": "Workflow End",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "createdAt": "2023-06-15T18:51:36.900Z",
+  "id": "9",
+  "name": "Ryan: Dev - check workflow",
+  "nodes": [
+    {
+      "parameters": {},
+      "id": "d1563e4b-082a-4489-a5e2-924155c5f25e",
+      "name": "When clicking \"Execute Workflow\"",
+      "type": "n8n-nodes-base.manualTrigger",
+      "typeVersion": 1,
+      "position": [
+        540,
+        340
+      ]
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{ $execution.workflowId === $workflow.id  }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "id": "0fc1f2c3-f064-4a62-8cf7-c446aedb9f5e",
+      "name": "IF",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        760,
+        340
+      ]
+    },
+    {
+      "parameters": {},
+      "name": "NoOp1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        260
+      ],
+      "id": "13fef559-3200-41e2-96e2-fcc06bf300a2"
+    },
+    {
+      "parameters": {},
+      "name": "NoOp",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1000,
+        460
+      ],
+      "id": "8b08c099-fbb0-4ac5-9bae-00003adb7c5f"
+    },
+    {
+      "parameters": {
+        "rule": {
+          "interval": [
+            {
+              "field": "seconds",
+              "secondsInterval": 5
+            }
+          ]
+        }
+      },
+      "id": "cac39f86-c89d-41a5-9228-712a233ac458",
+      "name": "Schedule Trigger",
+      "type": "n8n-nodes-base.scheduleTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        540,
+        120
+      ]
+    },
+    {
+      "parameters": {
+        "amount": 5,
+        "unit": "minutes"
+      },
+      "id": "f9be7959-5600-4be3-9cb8-6584de8d710f",
+      "name": "Wait",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        260
+      ],
+      "webhookId": "ac5c657b-05e6-4736-9a67-a3c00f541582"
+    },
+    {
+      "parameters": {
+        "amount": 30,
+        "unit": "seconds"
+      },
+      "id": "0b9af6d6-6f73-4dc9-a037-f7e34893c16d",
+      "name": "Wait1",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        460
+      ],
+      "webhookId": "9586b73f-d588-41e3-8b04-b105cd664eed"
+    },
+    {
+      "parameters": {},
+      "name": "Start",
+      "type": "n8n-nodes-base.start",
+      "typeVersion": 1,
+      "position": [
+        260,
+        720
+      ],
+      "id": "0019c829-1386-458b-ae0f-b8f5a9524144"
+    },
+    {
+      "parameters": {
+        "interval": 30
+      },
+      "name": "Interval",
+      "type": "n8n-nodes-base.interval",
+      "typeVersion": 1,
+      "position": [
+        260,
+        890
+      ],
+      "id": "43b97314-e2e2-410e-9bdb-494e0c4becef"
+    },
+    {
+      "parameters": {
+        "conditions": {
+          "boolean": [
+            {
+              "value1": "={{  $json.continue  }}",
+              "value2": true
+            }
+          ]
+        }
+      },
+      "name": "New execution?",
+      "type": "n8n-nodes-base.if",
+      "typeVersion": 1,
+      "position": [
+        560,
+        890
+      ],
+      "id": "b1916c48-2e73-4f75-a2c5-09a7eee37058"
+    },
+    {
+      "parameters": {
+        "functionCode": "const staticData = getWorkflowStaticData('global');\nstaticData.workflowRunStatus = false;\n\nitems[0].json = {message: 'Now stopping'};\nreturn items;\n"
+      },
+      "name": "Workflow End",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        1180,
+        760
+      ],
+      "id": "a5c1243b-efd7-411d-ab64-d1f578e6c841"
+    },
+    {
+      "parameters": {
+        "functionCode": "const staticData = getWorkflowStaticData('global');\nconst workflowRunStatus = staticData.workflowRunStatus;\n\nif(workflowRunStatus) return [{json:{continue: false,message: 'Already running'}}];\n\nstaticData.workflowRunStatus = true;\n\nitems[0].json = {continue: true,message: 'Now running'};\nreturn items;"
+      },
+      "name": "Workflow Start",
+      "type": "n8n-nodes-base.function",
+      "typeVersion": 1,
+      "position": [
+        410,
+        890
+      ],
+      "id": "2add6eb5-e563-4e19-b8e3-86d5bc895698"
+    },
+    {
+      "parameters": {
+        "amount": 150,
+        "unit": "seconds"
+      },
+      "name": "Your code/nodes",
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1,
+      "position": [
+        770,
+        760
+      ],
+      "webhookId": "6c2a9b5a-99d1-4d1a-b0bb-e5ce4317b658",
+      "id": "cacf3c37-8cf4-4a87-99fe-26dfaf497f92"
+    },
+    {
+      "parameters": {},
+      "name": "NoOp2",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        750,
+        1010
+      ],
+      "id": "3ba5916d-c9ed-4e32-aeb2-dfeacce3a0d8"
+    },
+    {
+      "parameters": {},
+      "name": "NoOp3",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        1340,
+        760
+      ],
+      "id": "70cf9511-6ead-4b0b-b8ca-03a503013c33"
+    }
+  ],
+  "pinData": {},
+  "settings": {},
+  "staticData": {
+    "node:Schedule Trigger": {
+      "recurrencyRules": []
+    }
+  },
+  "tags": [],
+  "triggerCount": 1,
+  "updatedAt": "2023-06-15T19:36:20.836Z",
+  "versionId": "9f4aa23a-9ebd-4e13-9d74-67f59afb1ff6"
+}
