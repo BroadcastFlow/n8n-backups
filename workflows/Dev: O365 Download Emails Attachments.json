@@ -38,7 +38,7 @@
       "main": [
         [
           {
-            "node": "Download Attachment",
+            "node": "switch on env4",
             "type": "main",
             "index": 0
           }
@@ -104,7 +104,7 @@
       "main": [
         [
           {
-            "node": "AWS S3",
+            "node": "switch on env6",
             "type": "main",
             "index": 0
           }
@@ -126,7 +126,7 @@
       "main": [
         [
           {
-            "node": "Microsoft Outlook - Mark as Read",
+            "node": "switch on env5",
             "type": "main",
             "index": 0
           }
@@ -148,7 +148,7 @@
       "main": [
         [
           {
-            "node": "Microsoft Outlook - Mark as Read",
+            "node": "switch on env5",
             "type": "main",
             "index": 0
           }
@@ -188,7 +188,14 @@
       "main": [
         [
           {
-            "node": "List Messages in Folder1",
+            "node": "switch on env2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "No Emails, do nothing. Exit.1",
             "type": "main",
             "index": 0
           }
@@ -232,14 +239,14 @@
       "main": [
         [
           {
-            "node": "Get Folder Details: Inbox1",
+            "node": "switch on env1",
             "type": "main",
             "index": 0
           }
         ],
         [
           {
-            "node": "Get Folder Details: Inbox",
+            "node": "switch on env",
             "type": "main",
             "index": 0
           }
@@ -279,39 +286,6 @@
         ]
       ]
     },
-    "Set watcherBaseURL": {
-      "main": [
-        [
-          {
-            "node": "Check XEN Watcher is available1",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "trigger by cleanup": {
-      "main": [
-        [
-          {
-            "node": "Set watcherBaseURL",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
-    "Trigger by normal": {
-      "main": [
-        [
-          {
-            "node": "Set watcherBaseURL",
-            "type": "main",
-            "index": 0
-          }
-        ]
-      ]
-    },
     "Standard JSON": {
       "main": [
         [
@@ -327,7 +301,7 @@
       "main": [
         [
           {
-            "node": "Get Attachments",
+            "node": "switch on env3",
             "type": "main",
             "index": 0
           }
@@ -335,6 +309,422 @@
         [
           {
             "node": "Email without Attachment",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "trigger by cleanup": {
+      "main": [
+        [
+          {
+            "node": "doing nothing - looks cleaner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Trigger by normal": {
+      "main": [
+        [
+          {
+            "node": "doing nothing - looks cleaner",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "doing nothing - looks cleaner": {
+      "main": [
+        [
+          {
+            "node": "set dev",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "set Demo",
+            "type": "main",
+            "index": 0
+          },
+          {
+            "node": "set prod",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set Demo": {
+      "main": [
+        [
+          {
+            "node": "unified json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set prod": {
+      "main": [
+        [
+          {
+            "node": "unified json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "set dev": {
+      "main": [
+        [
+          {
+            "node": "unified json",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "unified json": {
+      "main": [
+        [
+          {
+            "node": "Check XEN Watcher is available1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Folder Details: Inbox2": {
+      "main": [
+        [
+          {
+            "node": "IF Inbox has unread messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Folder Details: Inbox3": {
+      "main": [
+        [
+          {
+            "node": "IF Inbox has unread messages",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "switch on env": {
+      "main": [
+        [
+          {
+            "node": "Get Folder Details: Inbox",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Folder Details: Inbox2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Folder Details: Inbox3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "switch on env1": {
+      "main": [
+        [
+          {
+            "node": "Get Folder Details: Inbox1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Folder Details: Inbox4",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Folder Details: Inbox5",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Folder Details: Inbox4": {
+      "main": [
+        [
+          {
+            "node": "IF Inbox has unread messages1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Folder Details: Inbox5": {
+      "main": [
+        [
+          {
+            "node": "IF Inbox has unread messages1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Messages in Folder2": {
+      "main": [
+        [
+          {
+            "node": "Occurred Before",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "List Messages in Folder3": {
+      "main": [
+        [
+          {
+            "node": "Occurred Before",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "switch on env2": {
+      "main": [
+        [
+          {
+            "node": "List Messages in Folder1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "List Messages in Folder2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "List Messages in Folder3",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Attachments2": {
+      "main": [
+        [
+          {
+            "node": "Do not include Inline Attachments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Get Attachments1": {
+      "main": [
+        [
+          {
+            "node": "Do not include Inline Attachments",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "switch on env3": {
+      "main": [
+        [
+          {
+            "node": "Get Attachments2",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Attachments",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Get Attachments1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Attachment1": {
+      "main": [
+        [
+          {
+            "node": "Set s3Filename",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Download Attachment2": {
+      "main": [
+        [
+          {
+            "node": "Set s3Filename",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "switch on env4": {
+      "main": [
+        [
+          {
+            "node": "Download Attachment",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Download Attachment1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Download Attachment2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft Outlook - Mark as Read1": {
+      "main": [
+        [
+          {
+            "node": "Microsoft Outlook - Move to Ingested1",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Microsoft Outlook - Mark as Read2": {
+      "main": [
+        [
+          {
+            "node": "Microsoft Outlook - Move to Ingested2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "switch on env5": {
+      "main": [
+        [
+          {
+            "node": "Microsoft Outlook - Mark as Read",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Microsoft Outlook - Mark as Read1",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "Microsoft Outlook - Mark as Read2",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "switch on env6": {
+      "main": [
+        [
+          {
+            "node": "AWS S3",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AWS S31",
+            "type": "main",
+            "index": 0
+          }
+        ],
+        [
+          {
+            "node": "AWS S32",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AWS S31": {
+      "main": [
+        [
+          {
+            "node": "IF Upload Successfully",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "AWS S32": {
+      "main": [
+        [
+          {
+            "node": "IF Upload Successfully",
             "type": "main",
             "index": 0
           }
@@ -353,8 +743,8 @@
       "type": "n8n-nodes-base.manualTrigger",
       "typeVersion": 1,
       "position": [
-        -820,
-        460
+        -1460,
+        600
       ]
     },
     {
@@ -371,8 +761,8 @@
       "type": "n8n-nodes-base.microsoftOutlook",
       "typeVersion": 1,
       "position": [
-        540,
-        500
+        400,
+        720
       ],
       "credentials": {
         "microsoftOutlookOAuth2Api": {
@@ -393,8 +783,8 @@
       "type": "n8n-nodes-base.microsoftOutlook",
       "typeVersion": 1,
       "position": [
-        160,
-        520
+        -20,
+        600
       ],
       "credentials": {
         "microsoftOutlookOAuth2Api": {
@@ -415,8 +805,8 @@
       "type": "n8n-nodes-base.microsoftOutlook",
       "typeVersion": 1,
       "position": [
-        1340,
-        304
+        1420,
+        180
       ],
       "credentials": {
         "microsoftOutlookOAuth2Api": {
@@ -437,8 +827,8 @@
       "type": "n8n-nodes-base.awsS3",
       "typeVersion": 1,
       "position": [
-        2040,
-        404
+        2600,
+        160
       ],
       "credentials": {
         "aws": {
@@ -464,8 +854,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
       "position": [
-        1540,
-        204
+        1640,
+        180
       ]
     },
     {
@@ -480,8 +870,8 @@
       "type": "n8n-nodes-base.microsoftOutlook",
       "typeVersion": 1,
       "position": [
-        1820,
-        204
+        2040,
+        0
       ],
       "credentials": {
         "microsoftOutlookOAuth2Api": {
@@ -497,14 +887,14 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        2200,
-        404
+        2900,
+        500
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "={{ $('Set watcherBaseURL').item.json.watcherBaseURL }}new-email",
+        "url": "={{ $('set Demo').item.json.watcherBaseURL }}new-email",
         "sendHeaders": true,
         "headerParameters": {
           "parameters": [
@@ -524,8 +914,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        2040,
-        604
+        2260,
+        780
       ]
     },
     {
@@ -545,14 +935,14 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        1740,
-        404
+        2280,
+        20
       ]
     },
     {
       "parameters": {
         "method": "POST",
-        "url": "={{ $('Set watcherBaseURL').item.json.watcherBaseURL }}new-email",
+        "url": "={{ $('set Demo').item.json.watcherBaseURL }}new-email",
         "sendBody": true,
         "specifyBody": "json",
         "jsonBody": "={\n  \"attachment\": null,\n  \"sender\": {\n    \"name\": \"{{ $('Standard JSON').item.json.sender.emailAddress.name }}\",\n    \"address\": \"{{ $('Standard JSON').item.json.sender.emailAddress.address }}\"\n  },\n  \"subject\": \"{{ $('Standard JSON').item.json.subject }}\",\n  \"mailbox\": \"dev.import@three-media.tv\"\n} ",
@@ -579,8 +969,8 @@
       "type": "n8n-nodes-base.awsS3",
       "typeVersion": 1,
       "position": [
-        2200,
-        604
+        2460,
+        780
       ],
       "credentials": {
         "aws": {
@@ -606,23 +996,23 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        1900,
-        404
+        2440,
+        20
       ]
     },
     {
       "parameters": {
         "content": "## Move Processed emails",
-        "height": 287.17880375987085,
-        "width": 444.8407829440106
+        "height": 637.799825397689,
+        "width": 687.5983613999413
       },
       "id": "599665da-87c4-4c63-b957-7d77e31cd26a",
       "name": "Sticky Note1",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        1940,
-        840
+        1860,
+        1200
       ]
     },
     {
@@ -638,8 +1028,8 @@
       "type": "n8n-nodes-base.microsoftOutlook",
       "typeVersion": 1,
       "position": [
-        1994,
-        920
+        2200,
+        1260
       ],
       "credentials": {
         "microsoftOutlookOAuth2Api": {
@@ -670,8 +1060,8 @@
       "type": "n8n-nodes-base.microsoftOutlook",
       "typeVersion": 1,
       "position": [
-        2174,
-        920
+        2360,
+        1260
       ],
       "credentials": {
         "microsoftOutlookOAuth2Api": {
@@ -697,8 +1087,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1,
       "position": [
-        -820,
-        680
+        -1460,
+        820
       ]
     },
     {
@@ -717,8 +1107,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        320,
-        520
+        160,
+        780
       ]
     },
     {
@@ -737,8 +1127,8 @@
       "type": "n8n-nodes-base.scheduleTrigger",
       "typeVersion": 1.1,
       "position": [
-        -820,
-        260
+        -1460,
+        400
       ]
     },
     {
@@ -753,8 +1143,8 @@
       "type": "n8n-nodes-base.microsoftOutlook",
       "typeVersion": 1,
       "position": [
-        160,
-        320
+        -20,
+        -20
       ],
       "credentials": {
         "microsoftOutlookOAuth2Api": {
@@ -779,8 +1169,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        340,
-        320
+        180,
+        240
       ]
     },
     {
@@ -797,8 +1187,8 @@
       "type": "n8n-nodes-base.microsoftOutlook",
       "typeVersion": 1,
       "position": [
-        540,
-        300
+        580,
+        -80
       ],
       "credentials": {
         "microsoftOutlookOAuth2Api": {
@@ -824,8 +1214,8 @@
       "type": "n8n-nodes-base.filter",
       "typeVersion": 1,
       "position": [
-        720,
-        300
+        780,
+        160
       ]
     },
     {
@@ -838,8 +1228,8 @@
       "type": "n8n-nodes-base.httpRequest",
       "typeVersion": 4.1,
       "position": [
-        -240,
-        420
+        -620,
+        540
       ]
     },
     {
@@ -847,7 +1237,7 @@
         "conditions": {
           "string": [
             {
-              "value1": "={{ $('Set watcherBaseURL').item.json.triggerBy }}",
+              "value1": "={{ $('unified json').item.json.triggerBy }}",
               "value2": "cleanup"
             }
           ]
@@ -858,29 +1248,8 @@
       "type": "n8n-nodes-base.if",
       "typeVersion": 1,
       "position": [
-        -80,
-        420
-      ]
-    },
-    {
-      "parameters": {
-        "values": {
-          "string": [
-            {
-              "name": "watcherBaseURL",
-              "value": "=https://demo.xenpipeline.com/watcher/"
-            }
-          ]
-        },
-        "options": {}
-      },
-      "id": "28a3c901-3b0b-49db-8ae4-a38184d23943",
-      "name": "Set watcherBaseURL",
-      "type": "n8n-nodes-base.set",
-      "typeVersion": 2,
-      "position": [
-        -380,
-        420
+        -460,
+        540
       ]
     },
     {
@@ -900,8 +1269,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        -580,
-        260
+        -1300,
+        400
       ]
     },
     {
@@ -921,8 +1290,8 @@
       "type": "n8n-nodes-base.set",
       "typeVersion": 2,
       "position": [
-        -580,
-        560
+        -1300,
+        700
       ]
     },
     {
@@ -932,45 +1301,45 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        880,
-        380
+        900,
+        600
       ]
     },
     {
       "parameters": {
         "content": "## Setting up Environments \n\n",
         "height": 700.7295805392414,
-        "width": 935.8954601722411
+        "width": 1219.284507739997
       },
       "id": "ac8c76eb-2878-4b7c-8acc-a3d3cfeacc6f",
       "name": "Sticky Note",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        -880,
-        180
+        -1520,
+        320
       ]
     },
     {
       "parameters": {
         "content": "## Collecting Emails\n",
-        "height": 695.9102190478993,
-        "width": 905.3955374718269
+        "height": 1502.9502002283798,
+        "width": 1276.3500567821761
       },
       "id": "9cf76a80-930b-484d-aaab-516853f9d68d",
       "name": "Sticky Note2",
       "type": "n8n-nodes-base.stickyNote",
       "typeVersion": 1,
       "position": [
-        120,
-        180
+        -240,
+        -163.37916410327625
       ]
     },
     {
       "parameters": {
         "content": "## Attachment Handling",
-        "height": 621.7684693780386,
-        "width": 1306.236222695818
+        "height": 1122.0933893995616,
+        "width": 2020.0544492165986
       },
       "id": "0fb13dc1-5e52-4156-8aac-9007c0403188",
       "name": "Sticky Note3",
@@ -978,7 +1347,7 @@
       "typeVersion": 1,
       "position": [
         1080,
-        180
+        -35.84699324617998
       ]
     },
     {
@@ -1008,9 +1377,678 @@
       "type": "n8n-nodes-base.noOp",
       "typeVersion": 1,
       "position": [
-        540,
+        380,
+        920
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "watcherBaseURL",
+              "value": "=https://demo.xenpipeline.com/watcher/"
+            },
+            {
+              "name": "env",
+              "value": "demo"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "28a3c901-3b0b-49db-8ae4-a38184d23943",
+      "name": "set Demo",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        -960,
+        540
+      ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "watcherBaseURL",
+              "value": "=https://demo.xenpipeline.com/watcher/"
+            },
+            {
+              "name": "env",
+              "value": "prod"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "caa9d45a-f062-4651-8aee-a948d7e9d946",
+      "name": "set prod",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        -960,
         700
       ]
+    },
+    {
+      "parameters": {
+        "values": {
+          "string": [
+            {
+              "name": "watcherBaseURL",
+              "value": "=https://demo.xenpipeline.com/watcher/"
+            },
+            {
+              "name": "env",
+              "value": "dev"
+            }
+          ]
+        },
+        "options": {}
+      },
+      "id": "ecf317a7-81c0-4ca4-8ef8-64767a900d77",
+      "name": "set dev",
+      "type": "n8n-nodes-base.set",
+      "typeVersion": 2,
+      "position": [
+        -960,
+        400
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "cc96fbbc-9129-44e5-a2e2-8525e9a5d053",
+      "name": "doing nothing - looks cleaner",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -1160,
+        540
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "d93ab20c-aa26-4bf7-ba31-16b1e8d8770e",
+      "name": "unified json",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        -780,
+        540
+      ]
+    },
+    {
+      "parameters": {},
+      "id": "62a94451-e9a7-47cd-bdc5-8e1f7a44d935",
+      "name": "No Emails, do nothing. Exit.1",
+      "type": "n8n-nodes-base.noOp",
+      "typeVersion": 1,
+      "position": [
+        400,
+        480
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "get",
+        "folderId": "Inbox",
+        "additionalFields": {}
+      },
+      "id": "3c542dc3-5051-4a72-aead-846d4e869f74",
+      "name": "Get Folder Details: Inbox2",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        780
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "get",
+        "folderId": "Inbox",
+        "additionalFields": {}
+      },
+      "id": "da2ff902-f62b-4b65-b9a5-c3e76ce9c3b6",
+      "name": "Get Folder Details: Inbox3",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        980
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $('unified json').item.json.env }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "dev"
+            },
+            {
+              "value2": "demo",
+              "output": 1
+            },
+            {
+              "value2": "prod",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "c6dce5f7-ad41-49eb-8da9-3abf51e19245",
+      "name": "switch on env",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        780
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $('unified json').item.json.env }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "dev"
+            },
+            {
+              "value2": "demo",
+              "output": 1
+            },
+            {
+              "value2": "prod",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "fb57c999-6429-44ec-bdee-714ce4c7c0c8",
+      "name": "switch on env1",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        -220,
+        260
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "get",
+        "folderId": "Inbox",
+        "additionalFields": {}
+      },
+      "id": "941b29ee-9d05-443b-99d1-80eded08cad4",
+      "name": "Get Folder Details: Inbox4",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        220
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folder",
+        "operation": "get",
+        "folderId": "Inbox",
+        "additionalFields": {}
+      },
+      "id": "50c355f1-f790-48a9-8cba-a968362b9a9f",
+      "name": "Get Folder Details: Inbox5",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        -20,
+        400
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folderMessage",
+        "operation": "getAll",
+        "folderId": "={{ $json.id }}",
+        "additionalFields": {
+          "filter": "=isRead eq true"
+        }
+      },
+      "id": "43c5517d-16a9-4ff4-a1bd-2e05b24c366f",
+      "name": "List Messages in Folder2",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        580,
+        120
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "folderMessage",
+        "operation": "getAll",
+        "folderId": "={{ $json.id }}",
+        "additionalFields": {
+          "filter": "=isRead eq true"
+        }
+      },
+      "id": "28edac27-09d2-4bd5-ab11-0f4c4eb396b8",
+      "name": "List Messages in Folder3",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        580,
+        320
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $('unified json').item.json.env }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "dev"
+            },
+            {
+              "value2": "demo",
+              "output": 1
+            },
+            {
+              "value2": "prod",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "4947f528-befd-408a-933d-d65e4cfab92d",
+      "name": "switch on env2",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        380,
+        240
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messageAttachment",
+        "operation": "getAll",
+        "messageId": "={{ $json.id }}",
+        "additionalFields": {}
+      },
+      "id": "17b9e29e-9e8b-4abb-a549-bfc7ba2d260c",
+      "name": "Get Attachments1",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        360
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messageAttachment",
+        "operation": "getAll",
+        "messageId": "={{ $json.id }}",
+        "additionalFields": {}
+      },
+      "id": "62ce3b5f-1401-4ff6-9138-1d94f51ad2a8",
+      "name": "Get Attachments2",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        1420,
+        0
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $('unified json').item.json.env }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "dev"
+            },
+            {
+              "value2": "demo",
+              "output": 1
+            },
+            {
+              "value2": "prod",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "9c4524f5-706d-4e06-aa28-2fd00004b835",
+      "name": "switch on env3",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        1200,
+        200
+      ]
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $('unified json').item.json.env }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "dev"
+            },
+            {
+              "value2": "demo",
+              "output": 1
+            },
+            {
+              "value2": "prod",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "464031ca-a335-44e9-89da-d5500680ce94",
+      "name": "switch on env4",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        1820,
+        180
+      ]
+    },
+    {
+      "parameters": {
+        "resource": "messageAttachment",
+        "operation": "download",
+        "messageId": "={{ $('Standard JSON').item.json.id }}",
+        "attachmentId": "={{ $json.id }}"
+      },
+      "id": "4d1966aa-e65e-4ece-97b6-2d6c57ed2fe5",
+      "name": "Download Attachment1",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        160
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "resource": "messageAttachment",
+        "operation": "download",
+        "messageId": "={{ $('Standard JSON').item.json.id }}",
+        "attachmentId": "={{ $json.id }}"
+      },
+      "id": "9027e86d-14c8-4a05-bc40-09109de3d2d7",
+      "name": "Download Attachment2",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        2040,
+        340
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $('unified json').item.json.env }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "dev"
+            },
+            {
+              "value2": "demo",
+              "output": 1
+            },
+            {
+              "value2": "prod",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "69d3ac59-f365-4b5b-97aa-06a13c0b49ba",
+      "name": "switch on env5",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        1940,
+        1480
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "messageId": "={{ $('Standard JSON').item.json.id }}",
+        "updateFields": {
+          "isRead": true
+        }
+      },
+      "id": "5eb90ed5-bfb9-4f00-a079-bcdb490f1ebf",
+      "name": "Microsoft Outlook - Mark as Read1",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        2180,
+        1460
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "messageId": "={{ $('Standard JSON').item.json.id }}",
+        "folderId": "AAMkADdmMmM0ZWZlLWMwNWItNDVmNi1hNzliLWUwY2FlMjE1NTBmMQAuAAAAAAAga9nRB9gCT5yws-HML9_WAQDpgbEEdBHARa1Wr-wf85GsAAAKTAUuAAA="
+      },
+      "id": "5c15505d-b1b5-4ed7-9c06-a015daee8d4f",
+      "name": "Microsoft Outlook - Move to Ingested1",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        2340,
+        1460
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "operation": "update",
+        "messageId": "={{ $('Standard JSON').item.json.id }}",
+        "updateFields": {
+          "isRead": true
+        }
+      },
+      "id": "2f95df0d-4cd5-492c-9de4-b043c5f2f849",
+      "name": "Microsoft Outlook - Mark as Read2",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        2200,
+        1660
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "move",
+        "messageId": "={{ $('Standard JSON').item.json.id }}",
+        "folderId": "AAMkADdmMmM0ZWZlLWMwNWItNDVmNi1hNzliLWUwY2FlMjE1NTBmMQAuAAAAAAAga9nRB9gCT5yws-HML9_WAQDpgbEEdBHARa1Wr-wf85GsAAAKTAUuAAA="
+      },
+      "id": "4199bfb9-d31b-4cab-bafe-4e73a34b1388",
+      "name": "Microsoft Outlook - Move to Ingested2",
+      "type": "n8n-nodes-base.microsoftOutlook",
+      "typeVersion": 1,
+      "position": [
+        2360,
+        1660
+      ],
+      "credentials": {
+        "microsoftOutlookOAuth2Api": {
+          "id": "13",
+          "name": "Microsoft: OAuth - Dev XENPipeline Email Attachment Collector"
+        }
+      },
+      "continueOnFail": true
+    },
+    {
+      "parameters": {
+        "dataType": "string",
+        "value1": "={{ $('unified json').item.json.env }}",
+        "rules": {
+          "rules": [
+            {
+              "value2": "dev"
+            },
+            {
+              "value2": "demo",
+              "output": 1
+            },
+            {
+              "value2": "prod",
+              "output": 2
+            }
+          ]
+        }
+      },
+      "id": "c7d253f3-ad1a-41dd-8087-aebd0fcd915d",
+      "name": "switch on env6",
+      "type": "n8n-nodes-base.switch",
+      "typeVersion": 1,
+      "position": [
+        2400,
+        280
+      ]
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "={{ $json.s3Bucket }}",
+        "fileName": "={{ $json.s3Filename }}",
+        "additionalFields": {}
+      },
+      "id": "beceedf1-4287-423f-9206-4cea494eea0c",
+      "name": "AWS S31",
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 1,
+      "position": [
+        2600,
+        300
+      ],
+      "credentials": {
+        "aws": {
+          "id": "22",
+          "name": "AWS - Dev - emma.perkins"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "operation": "upload",
+        "bucketName": "={{ $json.s3Bucket }}",
+        "fileName": "={{ $json.s3Filename }}",
+        "additionalFields": {}
+      },
+      "id": "af9bfa55-ab97-446d-a17d-66caaa376e0c",
+      "name": "AWS S32",
+      "type": "n8n-nodes-base.awsS3",
+      "typeVersion": 1,
+      "position": [
+        2600,
+        440
+      ],
+      "credentials": {
+        "aws": {
+          "id": "22",
+          "name": "AWS - Dev - emma.perkins"
+        }
+      }
     }
   ],
   "pinData": {},
@@ -1028,6 +2066,6 @@
   },
   "tags": [],
   "triggerCount": 2,
-  "updatedAt": "2023-06-20T09:01:02.426Z",
-  "versionId": "349a9a4f-40d2-4082-b98c-880642c9a111"
+  "updatedAt": "2023-06-21T14:44:22.587Z",
+  "versionId": "f8b4a318-4e4d-43d1-940f-77f65cfbadbb"
 }
