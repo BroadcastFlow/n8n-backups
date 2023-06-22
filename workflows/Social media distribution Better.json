@@ -302,8 +302,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "aws": {
-          "id": "14",
-          "name": "AWS - Demo - tma.demo.s3"
+          "id": "22",
+          "name": "AWS - Dev - emma.perkins"
         }
       }
     },
@@ -346,8 +346,8 @@
       "alwaysOutputData": true,
       "credentials": {
         "aws": {
-          "id": "14",
-          "name": "AWS - Demo - tma.demo.s3"
+          "id": "25",
+          "name": "AWS - prod - we need to change keys"
         }
       }
     },
@@ -410,6 +410,6 @@
   "staticData": null,
   "tags": [],
   "triggerCount": 1,
-  "updatedAt": "2023-06-21T13:25:05.987Z",
-  "versionId": "7d047bf8-c350-4ac9-9c2e-77c146f12073"
+  "updatedAt": "2023-06-22T09:05:28.038Z",
+  "versionId": "b0b38a1c-4f45-40a1-9a96-1e741da69e40"
 }
